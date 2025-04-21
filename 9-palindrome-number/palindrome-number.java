@@ -1,7 +1,7 @@
 class Solution {
     public boolean isPalindrome(int x) {
         String s =Integer.toString(x);
-       if(isPal(s) && Integer.parseInt(s) == x){
+       if(isPal(s)){
         return true;
        }
         return false;
