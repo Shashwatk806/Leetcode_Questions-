@@ -1,7 +1,7 @@
 class Solution {
     public String toGoatLatin(String sentence) {
         StringBuilder sb = new StringBuilder();
-        String last = "a";
+        int aCount = 1;
         String[] words = sentence.split(" ");
         for(String word : words){
             if(isVowel(word.charAt(0))){
@@ -9,8 +9,10 @@ class Solution {
             }else{
                 sb.append(word.substring(1)).append(word.charAt(0));
             }
-            sb.append("ma").append(last).append(" ");
-            last += "a";
+            sb.append("ma");
+            for(int i=0;i<aCount;i++) sb.append('a');
+            aCount++;
+            sb.append(" ");
         }
         return sb.toString().trim();
     }
