@@ -5,18 +5,17 @@ class Solution {
         }
         String st = "1";
         for(int i=2;i<=n;i++){
-            String prev = st;
             StringBuilder sb = new StringBuilder();
             int count = 1;
-            for(int j =1;j<prev.length();j++){
-                if(prev.charAt(j) == prev.charAt(j-1)){
+            for(int j =1;j<st.length();j++){
+                if(st.charAt(j) == st.charAt(j-1)){
                     count++;
                 }else{
-                    sb.append(count).append(prev.charAt(j-1));
+                    sb.append(count).append(st.charAt(j-1));
                     count = 1;
                 }
             }
-            sb.append(count).append(prev.charAt(prev.length()-1));
+            sb.append(count).append(st.charAt(st.length()-1));
             st = sb.toString();
         }
         return st;
