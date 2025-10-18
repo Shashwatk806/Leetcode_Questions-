@@ -1,27 +1,24 @@
 class Solution {
     public String countAndSay(int n) {
-        //      if(n==1) {
-	    // 	 return "1";
-	    //  }
-		 String s = "1";
-		 for(int i = 2;i<=n;i++) {
-			 s = nextelement(s);
-		 }
-		 return s;
-	    }
-	private static String nextelement(String s) {
-		// TODO Auto-generated method stub
-		StringBuilder sb = new StringBuilder();
-		int count = 1;
-		for(int i = 1;i<s.length();i++) {
-			if(s.charAt(i) == s.charAt(i-1)) {
-				count++;
-			}else {
-				sb.append(count).append(s.charAt(i-1));
-				count = 1;
-			}
-		}
-		sb.append(count).append(s.charAt(s.length()-1));
-		return sb.toString();
+        if(n==1){
+            return "1";
+        }
+        String st = "1";
+        for(int i=2;i<=n;i++){
+            String prev = st;
+            StringBuilder sb = new StringBuilder();
+            int count = 1;
+            for(int j =1;j<prev.length();j++){
+                if(prev.charAt(j) == prev.charAt(j-1)){
+                    count++;
+                }else{
+                    sb.append(count).append(prev.charAt(j-1));
+                    count = 1;
+                }
+            }
+            sb.append(count).append(prev.charAt(prev.length()-1));
+            st = sb.toString();
+        }
+        return st;
     }
 }
