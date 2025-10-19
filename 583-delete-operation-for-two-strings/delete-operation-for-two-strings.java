@@ -1,7 +1,6 @@
 class Solution {
     public int minDistance(String word1, String word2) {
-        int length = (word1.length()-lcs(word1,word2))+(word2.length()-lcs(word1,word2));
-        return length;
+        return lcs(word1,word2);
     }
       public static int lcs(String s1, String s2) {
 			int[][] dp = new int[s1.length()+1][s2.length()+1];
@@ -16,6 +15,7 @@ class Solution {
 				}
 			}
 		}
-		return dp[dp.length-1][dp[0].length-1];
+		int length = dp[dp.length-1][dp[0].length-1];
+        return (s1.length()-length)+(s2.length()-length);
 	}
 }
