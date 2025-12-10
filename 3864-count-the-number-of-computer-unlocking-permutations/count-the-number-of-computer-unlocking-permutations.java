@@ -7,7 +7,7 @@ class Solution {
             if(complexity[i] <= complexity[0]){
                 return 0;
             }
-            ans = (ans*i)%mod;
+            ans = (ans*(n-i))%mod;
         }
         return (int) ans;
     }
